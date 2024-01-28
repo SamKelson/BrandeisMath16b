@@ -8,14 +8,11 @@ def is_in_first_quadrant(vector: list) -> bool:
   -------
   Boolean
 
-
-
   Returns True when vector is in the first quadrant (ie, 
   all of its entries are non-negative). Returns 
   False otherwise.
   '''
-  # write your code here
-  pass
+  return vector[0] >= 0 and vector[1] >= 0
 
 
 def dot(v1: list, v2: list) -> float:
@@ -31,7 +28,10 @@ def dot(v1: list, v2: list) -> float:
 
   Returns the dot product of v1 and v2
   '''
-  pass
+  result = 0.0
+  for element in range(0,len(v1)):
+    result += v1[element]*v2[element]
+  return result
 
 
 def norm(v: list) -> float:
@@ -46,10 +46,13 @@ def norm(v: list) -> float:
 
   Returns the Euclidean norm of v
   '''
-  pass
+  result = 0.0
+  for element in range(0,len(v)):
+    result += v[element]**2
+  return result**(1/2)
 
 
-def largest_norm(vectors: list[list]) -> list:
+def largest_norm(vectors: "list[list]") -> list:
   '''
   Parameters
   ----------
@@ -63,4 +66,8 @@ def largest_norm(vectors: list[list]) -> list:
   of all the vectors in 'vectors'. In case of a tie, returns 
   the first vector in the list.
   '''
-  pass
+  result = vectors[0]
+  for vector in range(0,len(vectors)):
+    if norm(vectors[vector]) > norm(result):
+      result = vectors[vector]
+  return result
