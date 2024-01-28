@@ -1,3 +1,5 @@
+#Sam Kelson HW2
+
 def is_in_first_quadrant(vector: list) -> bool:
   '''
   Parameters
